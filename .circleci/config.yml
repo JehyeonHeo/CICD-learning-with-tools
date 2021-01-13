@@ -13,9 +13,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - run:
-          command: aws cloudformation create-stack \
-                    --stack-name ec2-launch \
-                    --template-body file:///home/jehyeonheo/AWS_Projects/ansible/CICD-learning-with-tools/template.yml
+          command: |
+            aws cloudformation create-stack 
+              --stack-name ec2-launch
+              --template-body file:///home/jehyeonheo/AWS_Projects/ansible/CICD-learning-with-tools/template.yml
 
 workflows:
   # Name the workflow "welcome"
