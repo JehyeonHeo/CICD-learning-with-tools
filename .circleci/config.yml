@@ -14,7 +14,7 @@ jobs:
     steps:
       - run:
           command: >-
-            aws cloudformation create-stack 
+            aws cloudformation create-stack
             --template-body file:///home/jehyeonheo/AWS_Projects/ansible/CICD-learning-with-tools/template.yml
             --stack-name ec2-launch
 
