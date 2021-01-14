@@ -49,10 +49,28 @@ jobs:
           command: |
             ansible-playbook -i inventory main-remote.yml
 
+  smoke_test:
+    docker: 
+      - image: alpine:latest
+    steps: 
+      - run:
+          name: install curl
+          command: apk install curl
+      - run:
+          name: website existing check
+          command: |
+            if curl -s --head "https://google333.com" \
+            then \
+              echo "It worked!" \
+            else \
+              echo "It failed" \
+            fi
+
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
 #      - create_infrastructure
-      - configure_infrastructure
+#      - configure_infrastructure
+      - smoke_test
