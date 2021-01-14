@@ -10,6 +10,7 @@ Resources:
       # - use https://cloud-images.ubuntu.com/locator/ec2/
       # Find ImageId from ap-northeast-2, and image type is ubuntu
       ImageId: 'ami-0de358223fd8dc276'
+      InstanceType: t2.micro
   
 #  InstanceSecurityGroup:
 #    Type: 'AWS::EC2::SecurityGroup'
