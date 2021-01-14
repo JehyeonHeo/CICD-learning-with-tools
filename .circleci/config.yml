@@ -78,6 +78,18 @@ jobs:
                 return 1
             fi
 
+  smoke-test2:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run: 
+          name: simulate error
+          command: |
+            return 1
+      - destroy_environments
+        when: on_fail
+
 workflows:
   # Name the workflow "welcome"
   welcome:
