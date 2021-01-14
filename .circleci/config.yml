@@ -34,7 +34,7 @@ jobs:
 
   configure_infrastructure:
     docker:
-      - image: alpine3.11
+      - image: alpine:3.11
 
     steps:
       - checkout
