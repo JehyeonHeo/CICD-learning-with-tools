@@ -8,8 +8,8 @@ Resources:
       KeyName: AWS_EC2_Demo
       # you may need to find out what instance types are available in your region 
       # - use https://cloud-images.ubuntu.com/locator/ec2/
-      # Find ImageId from ap-northeast-2, and image type is ubuntu 18.04
-      ImageId: 'ami-0e67aff698cb24c1d'
+      # Find ImageId from ap-northeast-2, and image type is amazon linux 2
+      ImageId: 'ami-0094965d55b3bb1ff'
 
 #  InstanceSecurityGroup:
 #    Type: 'AWS::EC2::SecurityGroup'
