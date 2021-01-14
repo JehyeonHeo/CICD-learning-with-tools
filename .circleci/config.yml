@@ -54,8 +54,11 @@ jobs:
       - image: alpine:latest
     steps: 
       - run:
+          name: upgrade packages
+          command: apk upgrade
+      - run:
           name: install curl
-          command: apk install curl
+          command: apk add curl
       - run:
           name: website existing check
           command: |
