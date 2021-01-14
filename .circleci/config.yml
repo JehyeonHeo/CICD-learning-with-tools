@@ -7,6 +7,14 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 
+commands:
+  destroy_environments:
+    description: destroy environments when roll back is necessary.
+    steps:
+      - run: >-
+          aws cloudformation delete-stack
+          --stack-name ec2-launch 
+
 jobs:
   create_infrastructure:
     docker:
