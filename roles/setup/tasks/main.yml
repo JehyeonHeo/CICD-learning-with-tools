@@ -13,12 +13,12 @@
     global: yes
     production: yes
 
-- name: "update yum packages."
+- name: "update apt packages."
   become: yes
   apt:
     update_cache: yes
 
-- name: "upgrade yum packages."
+- name: "upgrade apt packages."
   become: yes
   apt:
     upgrade: yes
