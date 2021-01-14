@@ -67,6 +67,7 @@ jobs:
                 echo "It worked!"
               else
                 echo "It failed"
+                return 1
             fi
 
 workflows:
