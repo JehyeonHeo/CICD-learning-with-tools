@@ -13,10 +13,16 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - run:
+          name: install git first
+          command: sudo yum install git -y
+      - run:
+          name: clone template file to docker.
+          command: git clone https://github.com/JehyeonHeo/CICD-learning-with-tools.git -b circleci-project-setup
+      - run:
           name: Make AWS cloudformation stack.
           command: >-
             aws cloudformation create-stack
-            --template-body file://github.com/JehyeonHeo/CICD-learning-with-tools/blob/circleci-project-setup/template.yml
+            --template-body file://CICD-learning-with-tools/template.yml
             --stack-name ec2-launch
 
 workflows:
