@@ -13,14 +13,10 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - run:
-          name: copy template.yml from github.
-          command: >-
-            curl -L https://github.com/JehyeonHeo/CICD-learning-with-tools/blob/circleci-project-setup/template.yml
-      - run:
           name: Make AWS cloudformation stack.
           command: >-
             aws cloudformation create-stack
-            --template-body file:///home/ec2-user/template.yml
+            --template-body file://github.com/JehyeonHeo/CICD-learning-with-tools/blob/circleci-project-setup/template.yml
             --stack-name ec2-launch
 
 workflows:
