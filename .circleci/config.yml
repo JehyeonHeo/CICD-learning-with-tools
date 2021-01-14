@@ -11,9 +11,10 @@ commands:
   destroy_environments:
     description: destroy environments when roll back is necessary.
     steps:
-      - run: >-
-          aws cloudformation delete-stack
-          --stack-name ec2-launch 
+      - run: 
+          command: >-
+            aws cloudformation delete-stack
+            --stack-name ec2-launch 
 
 jobs:
   create_infrastructure:
@@ -87,9 +88,8 @@ jobs:
           name: simulate error
           command: |
             return 1
-      - run:
-          command: destroy_environments
-          when: on_fail
+      - destroy_environments
+        when: on_fail
 
 workflows:
   # Name the workflow "welcome"
