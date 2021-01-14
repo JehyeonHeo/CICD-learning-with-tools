@@ -3,7 +3,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       SecurityGroups:
-        - Fn::ImportValue: launch-wizard-2
+        - launch-wizard-2
   #      - !Ref InstanceSecurityGroup
       KeyName: AWS_EC2_Demo
       # you may need to find out what instance types are available in your region 
