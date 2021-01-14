@@ -1,7 +1,7 @@
 ---
 - name: "install nodejs package"
   become: yes 
-  yum: 
+  apt: 
     name: nodejs
 
 - name: "install pm2"
@@ -11,10 +11,15 @@
     global: yes
     production: yes
 
+- name: "update yum packages."
+  become: yes
+  apt:
+    update_cache: yes
+
 - name: "upgrade yum packages."
   become: yes
-  yum:
-    update_cache: yes
+  apt:
+    upgrade: yes
     autoremove: yes
 
 - name: Creates directory
