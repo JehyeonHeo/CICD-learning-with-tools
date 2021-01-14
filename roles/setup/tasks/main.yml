@@ -1,18 +1,4 @@
 ---
-- name: "install nodejs package"
-  become: yes 
-  apt: 
-    name: ['nodejs', 'npm']
-    state: latest
-    update_cache: yes
-
-- name: "install pm2"
-  become: yes
-  npm:
-    name: pm2
-    global: yes
-    production: yes
-
 - name: "update apt packages."
   become: yes
   apt:
@@ -23,6 +9,19 @@
   apt:
     upgrade: yes
     autoremove: yes
+    
+- name: "install nodejs package"
+  become: yes 
+  apt: 
+    name: ['nodejs', 'npm']
+    state: latest
+
+- name: "install pm2"
+  become: yes
+  npm:
+    name: pm2
+    global: yes
+    production: yes
 
 - name: Creates directory
   file:
