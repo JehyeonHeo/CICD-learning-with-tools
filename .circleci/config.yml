@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Make AWS cloudformation stack.
           command: >-
-            aws cloudformation create-stack
+            aws cloudformation update-stack
             --template-body file://CICD-learning-with-tools/template.yml
             --stack-name ec2-launch
 
