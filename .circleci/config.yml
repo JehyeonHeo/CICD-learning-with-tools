@@ -32,9 +32,26 @@ jobs:
               --template-file template.yml \
               --stack-name ec2-launch
 
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: ["63:28:29:45:fb:80:dc:73:38:35:88:1f:5d:19:d5:a6"]
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --update ansible
+      - run:
+          name: Configure server
+          command: |
+            ansible-playbook -i inventory main-remote.yml
+
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - create_infrastructure
+#      - create_infrastructure
+      - configure_infrastructure
