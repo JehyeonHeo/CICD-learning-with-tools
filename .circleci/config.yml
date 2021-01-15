@@ -85,6 +85,7 @@ jobs:
     docker:
       - image: amazon/aws-cli
     steps:
+      - run: export AWS_PAGER=""
       - checkout
       - run: 
           name: simulate error
